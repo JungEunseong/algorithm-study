@@ -1,0 +1,15 @@
+C:\Users\eunseong\Documents\GitHub\algorithm-study\rookiss_algorithm\Rookiss_Algorithm\Rookiss_Algorithm\bin\Debug\net6.0\Rookiss_Algorithm.exe
+C:\Users\eunseong\Documents\GitHub\algorithm-study\rookiss_algorithm\Rookiss_Algorithm\Rookiss_Algorithm\bin\Debug\net6.0\Rookiss_Algorithm.deps.json
+C:\Users\eunseong\Documents\GitHub\algorithm-study\rookiss_algorithm\Rookiss_Algorithm\Rookiss_Algorithm\bin\Debug\net6.0\Rookiss_Algorithm.runtimeconfig.json
+C:\Users\eunseong\Documents\GitHub\algorithm-study\rookiss_algorithm\Rookiss_Algorithm\Rookiss_Algorithm\bin\Debug\net6.0\Rookiss_Algorithm.dll
+C:\Users\eunseong\Documents\GitHub\algorithm-study\rookiss_algorithm\Rookiss_Algorithm\Rookiss_Algorithm\bin\Debug\net6.0\Rookiss_Algorithm.pdb
+C:\Users\eunseong\Documents\GitHub\algorithm-study\rookiss_algorithm\Rookiss_Algorithm\Rookiss_Algorithm\obj\Debug\net6.0\Rookiss_Algorithm.csproj.AssemblyReference.cache
+C:\Users\eunseong\Documents\GitHub\algorithm-study\rookiss_algorithm\Rookiss_Algorithm\Rookiss_Algorithm\obj\Debug\net6.0\Rookiss_Algorithm.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\eunseong\Documents\GitHub\algorithm-study\rookiss_algorithm\Rookiss_Algorithm\Rookiss_Algorithm\obj\Debug\net6.0\Rookiss_Algorithm.AssemblyInfoInputs.cache
+C:\Users\eunseong\Documents\GitHub\algorithm-study\rookiss_algorithm\Rookiss_Algorithm\Rookiss_Algorithm\obj\Debug\net6.0\Rookiss_Algorithm.AssemblyInfo.cs
+C:\Users\eunseong\Documents\GitHub\algorithm-study\rookiss_algorithm\Rookiss_Algorithm\Rookiss_Algorithm\obj\Debug\net6.0\Rookiss_Algorithm.csproj.CoreCompileInputs.cache
+C:\Users\eunseong\Documents\GitHub\algorithm-study\rookiss_algorithm\Rookiss_Algorithm\Rookiss_Algorithm\obj\Debug\net6.0\Rookiss_Algorithm.dll
+C:\Users\eunseong\Documents\GitHub\algorithm-study\rookiss_algorithm\Rookiss_Algorithm\Rookiss_Algorithm\obj\Debug\net6.0\refint\Rookiss_Algorithm.dll
+C:\Users\eunseong\Documents\GitHub\algorithm-study\rookiss_algorithm\Rookiss_Algorithm\Rookiss_Algorithm\obj\Debug\net6.0\Rookiss_Algorithm.pdb
+C:\Users\eunseong\Documents\GitHub\algorithm-study\rookiss_algorithm\Rookiss_Algorithm\Rookiss_Algorithm\obj\Debug\net6.0\Rookiss_Algorithm.genruntimeconfig.cache
+C:\Users\eunseong\Documents\GitHub\algorithm-study\rookiss_algorithm\Rookiss_Algorithm\Rookiss_Algorithm\obj\Debug\net6.0\ref\Rookiss_Algorithm.dll
