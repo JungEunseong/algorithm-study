@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Rookiss_Algorithm
 {
 
-    class MyList<T>
+    class MyList<T> // 동적배열 구현
     {
         const int DEFAULT_SIZE = 1;
         T[] _data = new T[DEFAULT_SIZE];
@@ -33,7 +33,7 @@ namespace Rookiss_Algorithm
             Count++;
         }
 
-        public T this[int index]
+        public T this[int index] 
         {
             get { return _data[index]; }
             set { _data[index] = value; }
@@ -47,26 +47,79 @@ namespace Rookiss_Algorithm
             Count--;
         }
     }
+
+    class MyLinkedListNode<T>
+    {
+        public T Data;
+        public MyLinkedListNode<T> Next;
+        public MyLinkedListNode<T> Prev;   
+    }
+
+    class MyLinkedList<T>
+    {
+        public MyLinkedListNode<T> Head; 
+        public MyLinkedListNode<T> Tail; 
+        public int Count = 0;
+
+        public MyLinkedListNode<T> AddLast(T data)
+        {
+            MyLinkedListNode<T> newNode = new MyLinkedListNode<T>();
+            newNode.Data = data;
+
+            // 이게 첫번째면, 즉 아예 없다면 새로추가
+            if (Head == null)
+                Head = newNode;
+
+            if(Tail != null)
+            {
+                Tail.Next = newNode;
+                newNode.Prev = Tail;
+            }
+
+                
+            Tail = newNode;
+            Count++;
+            return newNode;
+        }
+
+        public void Remove(MyLinkedListNode<T> node)
+        {
+            if (Head == node)
+                Head = Head.Next;
+
+            if (Tail == node)
+                Tail = Tail.Prev;
+
+            if (node.Prev != null)
+                node.Prev.Next = node.Next;
+
+            if (node.Next != null)
+                node.Next.Prev = node.Prev;
+
+
+            Count--;
+        }
+        
+
+    }
+
     class Board
     {
         public int[] _data = new int[25]; // 배열
         public MyList<int> _data2 = new MyList<int>(); // 동적 배열
-        public LinkedList<int> _data3 = new LinkedList<int>(); // 연결 리스트
-        
-        
+        public MyLinkedList<int> _data3 = new MyLinkedList<int>(); // 연결 리스트
+
+
         public void Initialize()
         {
-            _data2.Add(101);     
-            _data2.Add(102);     
-            _data2.Add(103);     
-            _data2.Add(104);     
-            _data2.Add(105);
+            _data3.AddLast(101);
+            _data3.AddLast(102);
+            MyLinkedListNode<int> node =  _data3.AddLast(103);
+            _data3.AddLast(104);
+            _data3.AddLast(105);
 
-            int temp = _data2[2];
-
-            _data2.RemoveAt(2);
+            _data3.Remove(node);
         }
-
 
 
     }
