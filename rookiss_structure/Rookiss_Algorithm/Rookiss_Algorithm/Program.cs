@@ -6,7 +6,9 @@ class Program
     public static void Main(string[] args)
     {
         Board board = new Board();
-        board.Initialize();
+        Player player = new Player();
+        board.Initialize(25,player);
+        player.Initialize(1, 1, board);
         Console.CursorVisible = false;
 
         const int WAIT_TICK = 1000 / 30;
@@ -19,25 +21,18 @@ class Program
 
             if (currentTick - lastTick < WAIT_TICK)
                 continue;
+            int deltaTick = currentTick - lastTick;
             lastTick = currentTick;
             #endregion
 
             // 입력
             // 로직
+            player.Update(deltaTick);
+
             // 렌더링
-
             Console.SetCursorPosition(0, 0);
-
-            for (int i = 0; i < 25; i++)
-            {
-                for (int j = 0; j < 25; j++)
-                {
-                    Console.ForegroundColor = ConsoleColor.Green;
-                    Console.Write(CIRCLE);
-                }
-
-                Console.WriteLine();
-            }
+            board.Render();
+           
             
             
         }
