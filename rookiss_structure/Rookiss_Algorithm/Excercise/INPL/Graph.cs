@@ -33,10 +33,65 @@ class Graph
     {
         bool[] visited = new bool[6];
         int[] distance = new int[6]; // 점을 찾았을 때 최단거리
+        int[] parent = new int[6];
         Array.Fill(distance, Int32.MaxValue);
 
         distance[start] = 0;
+        parent[start] = start;
+        while (true)
+        {
+            //제일 가까이 있는 후보를 찾는다.
 
+
+            // 가장 유려ㅛㄱ한 후보의 거리와 번호를 저장
+            int closest = Int32.MaxValue;
+            int now = -1;
+            for (int i = 0; i < 6; i++)
+            {
+                //이미 방문 스킵
+                if (visited[i])
+                    continue;
+                // 아직 발견된 적없거나, 기존 후보보다 멀리있으면 스킵
+                if (distance[i] == Int32.MaxValue || distance[i] >= closest)
+                    continue;
+                // 여태껏 발견한 가장 가깝다는 ㅢ미, 정보 갱신
+
+                closest = distance[i];
+                now = i;
+            }
+
+            // 다음 후보가 하나도없다. -> 종료
+            if (now == -1)
+                break;
+
+            // 제일 가까운 후보 찾음 방문.
+
+            visited[now] = true;
+
+            // 방문한 정점과 인접한 정점 조사,
+            // 상황에 따라 발견한 최단거리 갱신
+
+            for (int next = 0; next < 6; next++)
+            {
+                // 연결되지 않은 정점 스킵
+                if (adj[now, next] == -1)
+                    continue;
+
+                // 이미 방문 시 스킵 (이전 노드)
+                if (visited[next])
+                    continue;
+
+                // 새로 조사된 정점의 최단거리를 계산한다.
+                int nextDist = distance[now] + adj[now,next]; 
+                // 만약 기존 발견한 최단거리가 새로 조사된 최단거리보다 크면 정보 갱신
+                if(nextDist < distance[next])
+                {
+                    distance[next] = nextDist;
+                    parent[next] = now;
+                }       
+
+            }
+        }
 
 
     }
@@ -129,18 +184,16 @@ class Graph
     }
     #endregion
 }
-class Program
+class GraphProgram
 {
-    public static void Main(string[] args)
-    {
+    //public static void Main(string[] args)
         //DFS (Depth First  Search 깊이 우선 탐색)
         //깊게 먼저 갈 수 있는곳 까지 간다.
         //더 이상 갈 수 있는 곳이 없으면 되돌아가면서 새로운길로간다. 거기서 또 최대한 깊게
         //BFS (Breadth First Search 너비 우선 탐색)
         // 
         //
-        Graph graph = new Graph();
-        graph.SearcAll();
+    //    Graph graph = new Graph();
+    //    graph.SearcAll();
         
-    }
 }
