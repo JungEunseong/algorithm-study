@@ -66,12 +66,12 @@ namespace Excercise
 
             return height;
         }
-        public static void Main(string[] args)
+/*        public static void Main(string[] args)
         {
             TreeNode<string> root = MakeTree();
 
             PrintTree(root);
             Console.WriteLine(GetHeight(root));
-        }
+        }*/
     }
 }

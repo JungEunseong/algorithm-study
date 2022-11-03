@@ -35,7 +35,7 @@ namespace Rookiss_Algorithm
             PosX = posX;
             _board = board;
 
-            BFS();
+            AStar();
         }
 
         void RightHand()
@@ -76,7 +76,6 @@ namespace Rookiss_Algorithm
                 }
             }   
         }
-
         void BFS()
         {
             int[] deltaY = new int[] {-1,0 ,1,0};
@@ -130,6 +129,77 @@ namespace Rookiss_Algorithm
             // ex) 대각선이동 - 대각선 이동을 하게 되면 이동 당 비용이 방향마다 달라지므로 힘듦. 즉, BPS는 가중치가 없을 때만 사용 가능
             //
         }
+
+        struct PQNode : IComparable<PQNode>
+        {
+            public int F;
+            public int G;
+            public int Y;
+            public int X;
+
+            public int CompareTo(PQNode other)
+            {
+                if (F == other.F)
+                    return 0;
+
+                return F < other.F ? 1 : -1;
+            }
+        }
+        void AStar()
+        {
+            int[] deltaY = new int[] { -1, 0, 1, 0 };
+            int[] deltaX = new int[] { 0, -1, 0, 1 };
+
+            // 점수 매기기
+            // F = G + H
+            // F = 최종 점수 (작을 수록 좋음, 경로에 따라 달라짐)
+            // G = 시작점에서 해당 좌표까지 이동하는데 드는 비용(작을 수록 좋음, 경로에 따라 달라짐)
+            // H(휴리스틱) = 목적지에서 얼마나 가까운지(작을 수록 좋음, 경로 상관 X 고정값 - 벽이있어도 무시)
+
+            // (y, x) 이미 방문했는지 여부 (방문 = closed상태)
+
+            // 배열 사용 -> 메모리 up, 연산속도 down
+            bool[,] closed = new bool[_board.Size, _board.Size]; //CloseList
+
+            // (y,x) 가는 길을 한 번이라도 발견했는지
+            // 발견X => MaxValue
+            // 발견O => F = G + H
+            int[,] open = new int[_board.Size, _board.Size]; // OpenList
+            for (int y = 0; y < _board.Size; y++)
+                for (int x = 0; x < _board.Size; x++)
+                    open[y, x] = Int32.MaxValue;
+
+            // 시작점 발견 (예약 진행)
+            // G는 시작점이라 0 H는 이거
+
+            //제일 좋은거 찾기 최적화된 우선순위큐
+            // 오픈리스트에 있는 정보들 중 가장 좋은 것을 빠르게 뽑아오기위한 도구
+            PriorityQueue<PQNode> pq = new PriorityQueue<PQNode>();
+
+            open[PosY, PosX] = Math.Abs(_board.DestY - PosY) + Math.Abs(_board.DestX - PosX);
+            pq.Push(new PQNode() { F = Math.Abs(_board.DestY - PosY) + Math.Abs(_board.DestX - PosX),
+                G = 0, Y = PosY, X = PosX });
+
+            while (pq.Count > 0)
+            {
+                //제일 좋은거 찾기
+                PQNode node = pq.Pop();
+                // 동일한 좌표를 여러 경로로 찾아서, 더 빠른 경로로 인해서 이미 방문(closed)된 경우 스킵
+                if (closed[node.Y, node.X])
+                    continue;
+
+                // 방문한다.
+                closed[node.Y, node.X] = true;
+
+                // 목적지 도착시 종료
+                if (node.Y == _board.DestY && node.X == _board.DestX)
+                    break;
+
+                //상하좌우 등 이동할 수 있는 좌표인지 확인해 예약(open)한다
+
+            }
+        }
+
 
         const int MOVE_TICK = 100;
         int _sumTick = 0;
