@@ -142,7 +142,7 @@ namespace Algorithm
             int[] deltaY = new int[] { -1, 0, 1, 0,-1,1,1,-1 };
             int[] deltaX = new int[] { 0, -1, 0, 1 ,-1,-1,1,1};
             int[] cost = new int[] { 10, 10, 10, 10,14,14,14,14 };
-
+            List<int> FL = new List<int>();
             // 점수 매기기
             // F = G + H
             // F = 최종 점수 (작을 수록 좋음, 경로에 따라 달라짐)
@@ -179,6 +179,7 @@ namespace Algorithm
             {
                 //제일 좋은거 찾기
                 PQNode node = pq.Pop();
+                FL.Add(node.F);
                 // 동일한 좌표를 여러 경로로 찾아서, 더 빠른 경로로 인해서 이미 방문(closed)된 경우 스킵
                 if (closed[node.Y, node.X])
                     continue;
