@@ -1,4 +1,4 @@
-﻿using Rookiss_Algorithm;
+﻿using Algorithm;
 using System;
 
 class Program
