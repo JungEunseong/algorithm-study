@@ -1,4 +1,3 @@
-```cs
 public int[] solution(int[] lottos, int[] win_nums)
 {
 
@@ -24,4 +23,3 @@ public int[] solution(int[] lottos, int[] win_nums)
 
     return answer;
 }
-    ```

@@ -1,5 +1,3 @@
-
-```cs
 public int solution(int a, int b, int n)
 {
     int answer = 0;
@@ -14,4 +12,4 @@ public int solution(int a, int b, int n)
     }
 
     return answer;
-}```
+}
