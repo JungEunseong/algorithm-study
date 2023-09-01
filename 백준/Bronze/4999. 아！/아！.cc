@@ -23,7 +23,7 @@ int main() {
 		}
 	}
 
-	if (jeahwanCount >= doctorCount || Jeahwan.length() > Doctor.length())
+	if (jeahwanCount >= doctorCount)
 		cout << "go" << endl;
 	else
 		cout << "no" << endl;
